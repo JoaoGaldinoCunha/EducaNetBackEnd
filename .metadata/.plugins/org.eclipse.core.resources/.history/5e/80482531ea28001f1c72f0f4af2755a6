@@ -1,0 +1,14 @@
+package br.com.school.educanet.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+import br.com.school.educanet.model.TbUserCourse;
+import br.com.school.educanet.model.TbVideoCourse;
+@Repository
+public interface UserCourseRepository extends JpaRepository<TbUserCourse, Integer> {
+
+	@Query("SELECT u.name,u.email,tuc.userCourseId FROM TbUser u JOIN TbUserCourse.userId tuc")
+	TbVideoCourse takingAllCourse();
+}

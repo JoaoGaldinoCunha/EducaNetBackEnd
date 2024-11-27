@@ -1,0 +1,28 @@
+package br.com.school.educanet.controller;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import br.com.school.educanet.model.TbVideoCourse;
+import br.com.school.educanet.repository.VideoCourseRepository;
+@RestController
+public class VideoCourseController {
+	VideoCourseRepository videoCourseRepository;
+	
+	@PostMapping("/videopost")
+	public ResponseEntity<String>saveVideoCourse(@RequestBody TbVideoCourse tbVideoCourse){
+		TbVideoCourse existingCourseNameCourse = videoCourseRepository.findByName(tbVideoCourse.getVideoCourseName());
+		if(existingCourseNameCourse!= null) {
+			return ResponseEntity
+					.status(HttpStatus.CONFLICT)
+					.body("Nome já cadastado!");
+		}
+		
+		  videoCourseRepository.save(tbVideoCourse);
+		  return ResponseEntity.status(HttpStatus.CREATED).body("Video Curso Criado");
+		
+	}
+}

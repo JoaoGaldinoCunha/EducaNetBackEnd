@@ -1,0 +1,76 @@
+package br.com.school.educanet.model;
+import java.util.Date;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
+import lombok.Data; 
+
+@Entity
+@Table(name="User")
+@Data
+public class User {
+	@Id
+	private String email;
+	private String userPassword;
+	private Character userCpf;
+	private String userStatus;
+	private String userVerificarion;
+	@Temporal(TemporalType.DATE)
+	private Date userRegistation = new Date();
+
+	
+	
+	
+	public String getEmail() {
+		return email;
+	}
+	
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	public String getUsuarioSenha() {
+		return usuarioSenha;
+	}
+	
+	public void setUsuarioSenha(String usuarioSenha) {
+		this.usuarioSenha = usuarioSenha;
+	}
+	
+	public Character getUsuarioCpf() {
+		return usuarioCpf;
+	}
+	
+	public void setUsuarioCpf(Character usuarioCpf) {
+		this.usuarioCpf = usuarioCpf;
+	}
+	
+	public String getUsuarioStatus() {
+		return usuarioStatus;
+	}
+	
+	public void setUsuarioStatus(String usuarioStatus) {
+		this.usuarioStatus = usuarioStatus;
+	}
+	
+	public String getUsuarioVerificacao() {
+		return usuarioVerificacao;
+	}
+	
+	public void setUsuarioVerificacao(String usuarioVerificacao) {
+		this.usuarioVerificacao = usuarioVerificacao;
+	}
+	
+	public Date getUsuarioMatricula() {
+		return usuarioMatricula;
+	}
+	
+	public void setUsuarioMatricula(Date usuarioMatricula) {
+		this.usuarioMatricula = usuarioMatricula;
+	}
+		
+}
+
+

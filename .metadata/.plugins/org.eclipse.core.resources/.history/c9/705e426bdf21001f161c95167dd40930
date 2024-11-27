@@ -1,0 +1,12 @@
+package br.com.school.educanet.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+import br.com.school.educanet.model.TbVideoCourse;
+
+@Repository
+public interface VideoCourseRepository extends JpaRepository<TbVideoCourse, Integer> {
+	@Query("from tb_video_course vc where vc.videoCourseName= :name")
+	TbVideoCourse findByName(String videoCourseName);
+}

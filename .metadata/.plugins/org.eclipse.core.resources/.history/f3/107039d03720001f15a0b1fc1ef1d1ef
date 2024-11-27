@@ -1,0 +1,25 @@
+package br.com.school.educanet.model;
+
+import org.apache.catalina.User;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "tb_user_course")
+public class UserCourse {
+	@OneToOne
+	@JoinColumn(name = "userId")
+	 	User user;
+	@OneToOne
+	@JoinColumn(name = "courseId")
+	Course course;
+	private Integer userCourseId;
+	
+	
+}

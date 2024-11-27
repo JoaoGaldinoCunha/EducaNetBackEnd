@@ -1,0 +1,28 @@
+package br.com.school.educanet.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+
+import br.com.school.educanet.model.TbVideoCourse;
+import br.com.school.educanet.service.UserCourseService;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+
+@RestController
+public class UserCouserController {
+	
+	@Autowired
+	UserCourseService userCourseService;
+	
+	
+	@GetMapping("/CoursesById/{id}")
+	public List<TbVideoCourse> searchingCoursesById(@PathVariable Integer id){
+		return userCourseService.userCourserById(id);
+	}
+	
+	
+}

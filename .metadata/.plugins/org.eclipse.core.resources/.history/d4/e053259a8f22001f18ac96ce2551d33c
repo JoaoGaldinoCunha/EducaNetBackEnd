@@ -1,0 +1,50 @@
+package br.com.school.educanet.model;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "tb_video_course")
+public class TbVideoCourse {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer videoCourseId;
+	private String videoCourseName;
+	@ManyToOne
+	@JoinColumn(name = "courseId")
+	TbCourse tbCourse;
+	
+	
+	public String getVideoCourseName() {
+		return videoCourseName;
+	}
+	public void setVideoCourseName(String videoCourseName) {
+		this.videoCourseName = videoCourseName;
+	}
+	public TbCourse getTbCourse() {
+		return tbCourse;
+	}
+	public void setTbCourse(TbCourse tbCourse) {
+		this.tbCourse = tbCourse;
+	}
+	public Integer getVideoCourseId() {
+		return videoCourseId;
+	}
+	public void setVideoCourseId(Integer videoCourseId) {
+		this.videoCourseId = videoCourseId;
+	}
+	public TbCourse getCourse() {
+		return tbCourse;
+	}
+	public void setCourse(TbCourse tbCourse) {
+		this.tbCourse = tbCourse;
+	}
+	
+	
+}

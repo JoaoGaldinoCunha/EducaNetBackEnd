@@ -1,0 +1,16 @@
+package br.com.school.educanet.model;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "VideoCourse")
+public class VideoCourse {
+	private Integer videoCourseId;
+	private String VideoCourse ;
+	@ManyToOne
+	@JoinColumn(name = "courseId")
+	Course course;
+}

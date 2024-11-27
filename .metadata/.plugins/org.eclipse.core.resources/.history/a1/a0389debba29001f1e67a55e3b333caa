@@ -1,0 +1,17 @@
+package br.com.school.educanet.repository;
+
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+
+import br.com.school.educanet.model.TbUserCourse;
+import br.com.school.educanet.model.TbVideoCourse;
+@Repository
+public interface UserCourseRepository extends JpaRepository<TbUserCourse, Integer> {
+	@Query("select u.userName,u.userId,uc.userCourseId,c.courseName FROM TbUser u INNER JOIN on TbUserCourse uc INNER JOIN on TbCourse c where u.userId= :id")
+	List< TbVideoCourse> searchingCoursesByUserId(@Param("id")Integer id);
+}

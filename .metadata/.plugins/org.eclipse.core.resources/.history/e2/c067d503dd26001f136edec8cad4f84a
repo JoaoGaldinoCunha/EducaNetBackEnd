@@ -1,0 +1,14 @@
+package br.com.school.educanet.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+import br.com.school.educanet.model.TbVideoCourse;
+
+@Repository
+public interface VideoCourseRepository extends JpaRepository<TbVideoCourse, long> {
+	
+	@Query("select videoCourseName from TbVideoCourse vc where vc.videoCourseName= :vdCourseName")
+	TbVideoCourse findByName(@Param("vdCourseName") String videoCourseName);
+}

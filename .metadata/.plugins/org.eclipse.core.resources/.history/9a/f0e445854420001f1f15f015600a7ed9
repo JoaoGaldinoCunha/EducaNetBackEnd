@@ -1,0 +1,15 @@
+package br.com.school.educanet.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+import br.com.school.educanet.model.TbCourse;
+import java.util.List;
+
+
+@Repository
+public interface CourseRepository extends JpaRepository<TbCourse, Integer>{	
+	@Query("from tb_course c where c.courseName= :name")
+	TbCourse findByName(Integer couserId);
+		
+}

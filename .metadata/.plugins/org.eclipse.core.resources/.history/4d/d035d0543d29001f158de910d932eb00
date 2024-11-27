@@ -1,0 +1,13 @@
+package br.com.school.educanet.repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+import br.com.school.educanet.model.TbUserCourse;
+@Repository
+public interface UserCourseRepository extends JpaRepository<TbUserCourse, Integer> {
+
+}

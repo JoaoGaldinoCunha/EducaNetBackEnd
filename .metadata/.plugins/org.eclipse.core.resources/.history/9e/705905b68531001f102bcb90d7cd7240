@@ -1,0 +1,40 @@
+package br.com.school.educanet.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.google.gson.Gson;
+
+import br.com.school.educanet.model.response.ResponseUserCourse;
+import br.com.school.educanet.service.UserCourseService;
+import lombok.experimental.var;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+
+
+@RestController
+public class UserCouserController {
+	
+	@Autowired
+	UserCourseService userCourseService;
+	
+	
+	@GetMapping("/CoursesById/{id}")
+	public ResponseEntity<String> searchingCoursesById(@PathVariable Integer id){
+		
+		Gson gson =  new Gson();
+		var result = userCourseService.userCourserById(id);
+		var json = gson.toJson(result, ResponseUserCourse[].class);
+		
+		  return ResponseEntity
+		  .status(HttpStatus.OK)
+		  .body(json);
+	}
+	
+	
+}

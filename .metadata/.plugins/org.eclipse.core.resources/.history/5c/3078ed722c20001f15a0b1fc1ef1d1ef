@@ -1,0 +1,12 @@
+package br.com.school.educanet.model;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "tb_user_course")
+public class UserCourse {
+		private int userId;
+		private int courseId;
+		private int userCourseId;
+}

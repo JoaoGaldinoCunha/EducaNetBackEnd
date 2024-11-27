@@ -1,0 +1,66 @@
+package br.com.school.educanet.model;
+import java.util.Date;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
+import lombok.Data; 
+
+@Entity
+@Table(name="User")
+@Data
+public class Client {
+	@Id
+	private String email;
+	private String userPassword;
+	private Character userCpf;
+	private String userStatus;
+	private String userVerificarion;
+	@Temporal(TemporalType.DATE)
+	private Date userRegistation = new Date();
+	
+	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getUserPassword() {
+		return userPassword;
+	}
+	public void setUserPassword(String userPassword) {
+		this.userPassword = userPassword;
+	}
+	public Character getUserCpf() {
+		return userCpf;
+	}
+	public void setUserCpf(Character userCpf) {
+		this.userCpf = userCpf;
+	}
+	public String getUserStatus() {
+		return userStatus;
+	}
+	public void setUserStatus(String userStatus) {
+		this.userStatus = userStatus;
+	}
+	public String getUserVerificarion() {
+		return userVerificarion;
+	}
+	public void setUserVerificarion(String userVerificarion) {
+		this.userVerificarion = userVerificarion;
+	}
+	public Date getUserRegistation() {
+		return userRegistation;
+	}
+	public void setUserRegistation(Date userRegistation) {
+		this.userRegistation = userRegistation;
+	}
+
+	
+	
+	
+}
+
+

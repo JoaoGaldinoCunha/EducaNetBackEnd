@@ -1,0 +1,21 @@
+package br.com.school.educanet.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.fasterxml.jackson.core.sym.Name;
+
+import br.com.school.educanet.model.TbCourse;
+import br.com.school.educanet.model.TbUser;
+import br.com.school.educanet.repository.CourseRepository;
+
+@Service
+public class CourseService {
+	@Autowired
+	CourseRepository courseRepository;
+	public TbCourse SaveCourse(TbCourse tbCourse){
+		if(courseRepository.findByName(tbCourse.getCouserName())!= null) {
+			return courseRepository.save(tbCourse);
+	}
+  }
+}

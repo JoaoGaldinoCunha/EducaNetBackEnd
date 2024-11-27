@@ -1,0 +1,31 @@
+package br.com.school.educanet.model;
+import java.util.Date;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
+import lombok.Data; 
+
+@Entity
+@Table(name="TbUser")
+@Data
+public class TbUser {
+	@Id
+	private String email;
+	private String userVerification;
+	private String userPassword;
+	private Character userCpf;
+	private String userStatus;
+	@Temporal(TemporalType.DATE)
+	private Date clientRegistation = new Date();
+	
+	
+	
+
+	
+	
+	
+}
+
+

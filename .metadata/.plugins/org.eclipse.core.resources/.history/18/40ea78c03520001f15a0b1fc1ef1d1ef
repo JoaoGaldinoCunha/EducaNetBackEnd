@@ -1,0 +1,5 @@
+package br.com.school.educanet.repository;
+
+public interface CouseRepository {
+
+}

@@ -1,0 +1,18 @@
+package br.com.school.educanet.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import br.com.school.educanet.model.TbUserCourse;
+import br.com.school.educanet.repository.UserCourseRepository;
+
+public class UserCourseService {
+	@Autowired
+	UserCourseRepository userCourseRepository;
+	
+	
+	public List<TbUserCourse> returningCourses() {
+		return userCourseRepository.takingAllCourse();
+	}
+}

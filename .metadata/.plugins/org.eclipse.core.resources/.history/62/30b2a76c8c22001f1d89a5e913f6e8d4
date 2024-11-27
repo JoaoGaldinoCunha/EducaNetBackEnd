@@ -1,0 +1,29 @@
+package br.com.school.educanet.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import br.com.school.educanet.model.TbVideoCourse;
+import br.com.school.educanet.repository.VideoCourseRepository;
+
+public class VideoCourseService {
+		
+	@Autowired
+		VideoCourseRepository videoCourseRepository;
+		
+		
+		public TbVideoCourse saveVideoCourse(TbVideoCourse tbVideoCourse ) {
+			if (videoCourseRepository.findByName(tbVideoCourse.getVideoCourseName()) == null) {
+				return videoCourseRepository.save(tbVideoCourse);
+			}
+			return null;		
+		}
+		
+		
+		public void deleteVideoCourse(Integer id ) {
+			if (videoCourseRepository.findById(id) != null) {
+			 videoCourseRepository.deleteById(id);
+			}
+            throw new RuntimeException("video não encontrado!");
+	
+		}
+}

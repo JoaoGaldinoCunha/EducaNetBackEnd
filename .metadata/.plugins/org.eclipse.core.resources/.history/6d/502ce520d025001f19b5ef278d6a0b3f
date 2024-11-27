@@ -1,0 +1,35 @@
+package br.com.school.educanet.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import br.com.school.educanet.model.TbUser;
+import br.com.school.educanet.repository.UserRepository;
+
+@RestController
+public class ValidationController {
+	
+	
+	@Autowired
+    private  UserRepository userRepository;
+
+
+
+    @PostMapping("/validateUser")
+    public ResponseEntity<String> validateUser(@RequestBody TbUser user) {
+    	boolean validateUser = userRepository.existsByPasswordAndEmail(user.getEmail(), user.getPassword());
+    			if(validateUser) {
+    				return ResponseEntity.ok("Usuário encontrado");
+    			}else {
+    				return ResponseEntity
+    				.status(HttpStatus.NOT_FOUND)
+    				.body("uSUÁRIO NÃO ENCONTRADO!!");
+    			}    			
+    }
+}
+
+

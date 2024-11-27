@@ -1,0 +1,13 @@
+package br.com.school.educanet.service;
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import br.com.school.educanet.repository.UserCourseRepository;
+
+public class UserCourseService {
+	@Autowired
+	UserCourseRepository userCourseRepository;
+	
+
+}
